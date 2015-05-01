@@ -96,23 +96,35 @@ bool GaussianGQMInputFormat::WriteMolecule( OBBase* pOb, OBConversion* pConv )
 
 		// the route
 
-		os << "# " << theory << "/" << basis ; 
+		os << "# " << theory << "/" << basis  << endl; 
 		switch( opt ) {
-			OPT_NORMAL: os << " opt " ; break;
-			OPT_LOOSE:  os << " opt=loose " ; break;
-			OPT_TIGHT:  os << " opt=tight " ; break;
+			case OPT_NONE:
+				break;
+			case OPT_NORMAL: 
+				os << "# opt"  <<endl; 
+				break;
+			case OPT_LOOSE:  
+				os << "# opt=loose" <<endl ; 
+				break;
+			case OPT_TIGHT:  
+				os << "# opt=tight" <<endl ; 
+				break;
+			default:
+				return false;
 		}
-		os << " symmetry=None" ;
+
+
+		os << "# symmetry=None" << endl ;
 
 		if( frozen.size() ) {
-			os << " modredundant ";
+			os << "# modredundant" << endl;
 		}
 
 		if( espgrid ) {
-			os << "prop=(read/field)";
+			os << "# prop=(read,field)"  << endl;
 		}
 
-		os << endl;
+
 		os << endl;
 		os << "MOL" << endl;
 		os << endl;
@@ -149,8 +161,9 @@ bool GaussianGQMInputFormat::WriteMolecule( OBBase* pOb, OBConversion* pConv )
 			}
 			
 		}
-
-		os << endl;
+		else {
+			os << endl;
+		}
 
 		if( espgrid ) {
 			os << "@grid.dat /N" << endl;

@@ -185,6 +185,7 @@ bool GenericQMInputFormat::ParseOptions( OBBase *pOb, OBConversion *pConv ) {
 		else if( !strcmp( o, "loose" ) ) { opt = OPT_LOOSE ; }
 		else if( !strcmp( o, "normal") ) { opt = OPT_NORMAL; }
 		else if( !strcmp( o, "tight" ) ) { opt = OPT_TIGHT ; }
+		else if( !strlen( o ) ) { opt = OPT_NORMAL; }
 		else {
 			obErrorLog.ThrowError(__FUNCTION__, "Invalid value for argument 'O'", obError );
 			return false;
