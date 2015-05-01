@@ -48,6 +48,9 @@ set(formats_compchem
       molproformat
       mopacformat
       nwchemformat
+      genericqminputformat
+      psi4genericqminputformat
+      gaussiangenericqminputformat
       pwscfformat
       qchemformat
       turbomoleformat
