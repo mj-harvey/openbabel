@@ -268,9 +268,9 @@ namespace OpenBabel
 			write_bonds( *mol, os );
 		}
 
-		os << endl;
 
 		if( frozen.size() ) {
+			os << endl;
 			for( std::vector< std::vector<int> >::iterator i = frozen.begin(); i!=frozen.end(); i++ ) {
 				if( i->size() == 2 ) {
 					os << "B " << (*i)[0] << " " << (*i)[1] << " F" << endl ;
@@ -291,15 +291,13 @@ namespace OpenBabel
 			}
 
 		}
-		else {
-			os << endl;
-		}
 
 		if( espgrid ) {
-			os << "@grid.dat /N" << endl;
 			os << endl;
+			os << "@grid.dat /N" << endl;
 		}
 
+		os << endl;
 		os.flush();
 
 		return true;
