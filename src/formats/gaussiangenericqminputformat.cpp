@@ -177,8 +177,7 @@ namespace OpenBabel
 		os << std::setprecision(10);
 		os << "%nprocshared="  << ncpus << endl;
 		os << "%mem="  << mem << "GB" << endl;
-		os << "%chk = chk" << endl;
-		os << "%nosave" << endl;
+		os << "%chk=chk" << endl;
 		os << endl;
 
 		// the route
