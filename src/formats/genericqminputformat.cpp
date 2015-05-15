@@ -64,6 +64,7 @@ namespace OpenBabel {
 
 		basis_sets.insert( std::pair<string,string>(string(basis_default) , string(basis_default )) );
 		basis_sets.insert( std::pair<string,string>(string("cc-pvdz"), string ("cc-pvdz" )) );
+		basis_sets.insert( std::pair<string,string>(string("cc-pvtz"), string ("cc-pvtz" )) );
 
 		theory_sets.insert( std::pair<string,string>(string(theory_default), string (theory_default) ) );
 		theory_sets.insert( std::pair<string,string>(string("rohf"), string ("rohf" ) ) );
